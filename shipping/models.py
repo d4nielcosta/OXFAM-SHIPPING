@@ -1,3 +1,95 @@
+import datetime
 from django.db import models
+from django.core.validators import RegexValidator
 
-# Create your models here.
+#Validators
+phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format:'+999999999")
+
+class Store(models.Model):
+    id = models.IntegerField(primary_key=True, unique=True)
+    name = models.CharField(max_length=256)
+    email = models.EmailField()
+    phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+
+    #Composite Address
+    address = models.TextField()
+    postcode= models.CharField(primary_key=True, max_length=5)
+
+    def __unicode__(self):
+        return self.id
+
+
+
+class Commodity(models.Model):
+    id = models.IntegerField(primary_key=True, unique=True)
+    name = models.CharField(max_length=256)
+    description = models.TextField()
+    price = models.IntegerField()
+    date = models.DateField(auto_now=True)
+    shop = models.ForeignKey(Store.id)
+
+
+
+class Manager(models.Model):
+    name = models.CharField(max_length=256)
+    store = models.ForeignKey(Store.id)
+    primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+    secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+
+    profile = models.ManyToManyField(Volunteer, through='Volunteer')
+
+
+
+class Volunteer(models.Model):
+
+    """--------public---------"""
+
+    forename = models.CharField(max_length=128)
+    surname = models.CharField(max_length=128)
+    primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+    secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+
+    role = models.TextField()
+
+    #emergency contact
+    emergency_contact_forename = models.CharField(max_length=128, default="NO FORENAME ENTERED")
+    emergency_contact_surname = models.CharField(max_length=128, default="NO SURNAME ENTERED")
+    emergency_contact_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+
+    """--------private---------"""
+
+    address = models.TextField(max_length=300, blank=True, default="")
+    # reference1
+    reference1_forename = models.CharField(max_length=128, blank=True, default="")
+    reference1_surname = models.CharField(max_length=128, blank=True, default="")
+    reference1_primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+    reference1_secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+    reference1_email = models.EmailField(blank=True, default="")
+    reference1_sent = models.BooleanField(default=False)
+    reference1_received = models.BooleanField(default=False)
+
+    # reference2
+    reference2_forename = models.CharField(max_length=128, blank=True, default="")
+    reference2_surname = models.CharField(max_length=128, blank=True, default="")
+    reference2_primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+    reference2_secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+    reference2_email = models.EmailField(blank=True, default="")
+    reference2_sent = models.BooleanField(default=False)
+    reference2_received = models.BooleanField(default=False)
+
+    start_date = models.DateField(blank=True, default=datetime.date.today())
+    birthday = models.DateField()
+    risk_assessment = models.BooleanField(default=False)
+    health_and_safety = models.BooleanField(default=False)
+    parental_permission = models.BooleanField(default=False)
+    permission_to_work = models.BooleanField(default=False)
+
+
+    def save(self, *args, **kwargs):
+        super(Volunteer, self).save(*args, **kwargs)
+
+
+    def __unicode__(self):
+        return self.forename + ' ' + self.surname
+        #make sure to modify admin so it shows column with birthday and date joined
+
