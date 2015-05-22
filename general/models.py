@@ -10,6 +10,7 @@ class Store(models.Model):
     name = models.CharField(max_length=256)
     email = models.EmailField()
     phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+    manager = models.CharField(max_length=256, primary_key=True)
 
     #Composite Address
     address = models.TextField()
@@ -29,20 +30,7 @@ class Commodity(models.Model):
     shop = models.ForeignKey(Store.id)
 
 
-
-class Manager(models.Model):
-    name = models.CharField(max_length=256)
-    store = models.ForeignKey(Store.id)
-    primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
-    secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
-
-    profile = models.ManyToManyField(Volunteer, through='Volunteer')
-
-
-
-class Volunteer(models.Model):
-
-    """--------public---------"""
+class VolunteerApplication(models.Model):
 
     forename = models.CharField(max_length=128)
     surname = models.CharField(max_length=128)
@@ -55,8 +43,6 @@ class Volunteer(models.Model):
     emergency_contact_forename = models.CharField(max_length=128, default="NO FORENAME ENTERED")
     emergency_contact_surname = models.CharField(max_length=128, default="NO SURNAME ENTERED")
     emergency_contact_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
-
-    """--------private---------"""
 
     address = models.TextField(max_length=300, blank=True, default="")
     # reference1
@@ -86,7 +72,7 @@ class Volunteer(models.Model):
 
 
     def save(self, *args, **kwargs):
-        super(Volunteer, self).save(*args, **kwargs)
+        super(VolunteerApplication, self).save(*args, **kwargs)
 
 
     def __unicode__(self):
