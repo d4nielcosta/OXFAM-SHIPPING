@@ -5,29 +5,39 @@ from django.core.validators import RegexValidator
 #Validators
 phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format:'+999999999")
 
-class Store(models.Model):
-    id = models.IntegerField(primary_key=True, unique=True)
-    name = models.CharField(max_length=256)
-    email = models.EmailField()
-    phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
-    manager = models.CharField(max_length=256, primary_key=True)
-
-    #Composite Address
-    address = models.TextField()
-    postcode= models.CharField(primary_key=True, max_length=5)
-
-    def __unicode__(self):
-        return self.id
-
-
-
-class Commodity(models.Model):
-    id = models.IntegerField(primary_key=True, unique=True)
-    name = models.CharField(max_length=256)
+class Text(models.Model):
+    id = models.IntegerField(primary_key=True, default=1) # Variable for flexibility in future updates
+    intro = models.TextField()
+    mission = models.TextField()
     description = models.TextField()
-    price = models.IntegerField()
-    date = models.DateField(auto_now=True)
-    shop = models.ForeignKey(Store.id)
+    volunteer = models.TextField()
+    donate = models.TextField()
+    footerdonate = models.TextField()
+    location = models.TextField()
+
+# class Store(models.Model):
+#     id = models.IntegerField(primary_key=True, unique=True)
+#     name = models.CharField(max_length=256)
+#     email = models.EmailField()
+#     phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+#     manager = models.CharField(max_length=256)
+#
+#     #Composite Address
+#     address = models.TextField()
+#     postcode= models.CharField(max_length=5)
+#
+#     def __unicode__(self):
+#         return self.id
+#
+#
+#
+# class Commodity(models.Model):
+#     id = models.IntegerField(primary_key=True, unique=True)
+#     name = models.CharField(max_length=256)
+#     description = models.TextField()
+#     price = models.IntegerField()
+#     date = models.DateField(auto_now=True)
+#     shop = models.ForeignKey(Store)
 
 
 class VolunteerApplication(models.Model):
