@@ -49,6 +49,12 @@ class VolunteerApplication(models.Model):
 
     role = models.TextField()
 
+    dob = models.DateField()
+
+    parental_permission = models.BooleanField(default=False)
+    permission_to_work = models.BooleanField(default=False)
+
+
     #emergency contact
     emergency_contact_forename = models.CharField(max_length=128, default="NO FORENAME ENTERED")
     emergency_contact_surname = models.CharField(max_length=128, default="NO SURNAME ENTERED")
@@ -61,8 +67,7 @@ class VolunteerApplication(models.Model):
     reference1_primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
     reference1_secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
     reference1_email = models.EmailField(blank=True, default="")
-    reference1_sent = models.BooleanField(default=False)
-    reference1_received = models.BooleanField(default=False)
+
 
     # reference2
     reference2_forename = models.CharField(max_length=128, blank=True, default="")
@@ -70,16 +75,6 @@ class VolunteerApplication(models.Model):
     reference2_primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
     reference2_secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
     reference2_email = models.EmailField(blank=True, default="")
-    reference2_sent = models.BooleanField(default=False)
-    reference2_received = models.BooleanField(default=False)
-
-    start_date = models.DateField(blank=True, default=datetime.date.today())
-    birthday = models.DateField()
-    risk_assessment = models.BooleanField(default=False)
-    health_and_safety = models.BooleanField(default=False)
-    parental_permission = models.BooleanField(default=False)
-    permission_to_work = models.BooleanField(default=False)
-
 
     def save(self, *args, **kwargs):
         super(VolunteerApplication, self).save(*args, **kwargs)
