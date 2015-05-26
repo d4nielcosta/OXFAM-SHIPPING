@@ -22,6 +22,7 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
+    <link href="/static/css/customprogbar.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -156,42 +157,129 @@
             {# TODO FORM #}
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" style="width:20%">
+                            <h5 class="barprog">20% Complete</h5>
+                        </div>
+                    </div>
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form role="form" method="post" action="." name="sentMessage" id="volapp" novalidate>
+                        {% csrf_token %}
+                        <!-- Forename field -->
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Name</label>
-                                <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                                <label>Forename</label>
+                                <input type="text" class="form-control" placeholder="Forename" id="forename" name="forename" maxlength="128" required data-validation-required-message="Please enter your forename.">
+                                <p class="help-block text-danger">
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Surname field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Surname</label>
+                                <input type="text" class="form-control" placeholder="Surname" id="surname" name="surname" maxlength="128" required data-validation-required-message="Please enter your surname.">
+                                <p class="help-block text-danger">
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Primary Phone field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Primary Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="Primary Phone Number" id="pphone" name="pphone" maxlength="15" required data-validation-required-message="Please enter your primary phone number.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
+                        
+                        <!-- Secondary Phone field -->
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                <label>Secondary Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="Secondary Phone Number" id="sphone" name="sphone" maxlength="15" required data-validation-required-message="Please enter your secondary phone number.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
+
+                        <!-- Address Field -->
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                <label>Address</label>
+                                <textarea rows="4" class="form-control" placeholder="Address" id="address" name="address" required data-validation-required-message="Please enter your full address."></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
+
+                        <!-- Role Field -->
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Message</label>
-                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <label>Role</label>
+                                <textarea rows="2" class="form-control" placeholder="Role" id="role" name="role" required data-validation-required-message="Please enter a description of your role."></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
+
+
+                        <!-- Birthday -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <h4>Birthday</h4>
+                                <label for="selbday">Day</label>
+                                <select class="form-control" id="selbday" name="selbday">
+                                    {% for x in v_days %}
+                                    <option>{{ x }}</option>
+                                    {% endfor %}
+                                </select>
+
+                                
+                                <label for="selbmonth">Month</label>
+                                <select class="form-control" id="selbmonth" name="selbmonth">
+                                    {% for x in v_months %}
+                                    <option>{{ x }}</option>
+                                    {% endfor %}
+                                </select>
+
+                                
+                                <label for="selbyear">Year</label>
+                                <select class="form-control" id="selbyear" name="selbyear">
+                                    {% for x in v_years %}
+                                    <option>{{ x }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Risk assessment, health & safety
+                        parental permission permission to work checkboxes -->
+                        <!--
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12">
+
+                            <br>
+                            <label>
+                            <input type="checkbox" name="parentalPerm" id="parentalPerm">
+                            Parental Permission
+                            </label>
+
+                            <br>
+                            <label>
+                            <input type="checkbox" name="workPermission" id="workPermission">
+                            Permission to Work
+                            </label>
+
+                            </div>
+                        </div>
+                        -->
+    
+                        <!-- Send Button -->
                         <br>
                         <div id="success"></div>
-                        <div class="row">
+                            <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Send</button>
+                                <button type="submit" class="btn btn-success btn-lg">Submit</button>
                             </div>
                         </div>
                     </form>
