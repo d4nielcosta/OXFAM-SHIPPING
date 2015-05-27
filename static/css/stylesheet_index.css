@@ -63,7 +63,7 @@ hr.star-light {
 
 hr.star-light:after {
     color: #fff;
-    background-color: #18bc9c;
+    background-color: #0f7864;
 }
 
 hr.star-primary {
@@ -82,7 +82,8 @@ hr.star-primary:after {
 header {
     text-align: center;
     color: #fff;
-    background: #18bc9c;
+    background-image: url('/static/b3.jpg') ;
+    background-size: cover;
 }
 
 header .container {
@@ -110,8 +111,8 @@ header .intro-text .skills {
 
 @media(min-width:768px) {
     header .container {
-        padding-top: 50px;
-        padding-bottom: 100px;
+        padding-top: 100px;
+        padding-bottom: 150px;
     }
 
     header .intro-text .name {
@@ -181,7 +182,7 @@ section h2 {
 
 section.success {
     color: #fff;
-    background: #18bc9c;
+    background-color: #0f7864;
 }
 
 section.success a,
@@ -456,4 +457,13 @@ footer .footer-below {
 .portfolio-modal .modal-backdrop {
     display: none;
     opacity: 0;
+}
+
+
+p {
+    text-align: justify;
+}
+
+footer p {
+    text-align: center;
 }

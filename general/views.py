@@ -12,7 +12,27 @@ def getDateTimeField(day, month, year):
 def index(request):
     context_dict = {}
 
-    # Initialize the registration step on first visit
+    textWrapper = Text.objects.get(id=1)
+    print "ok1"
+    context_dict['mission'] = textWrapper.mission
+    context_dict['description'] = textWrapper.description
+    context_dict['donate'] = textWrapper.donate
+
+    # Address
+    context_dict['address1'] = textWrapper.addressL1
+    context_dict['address2'] = textWrapper.addressL2
+    context_dict['postcode'] = textWrapper.postcode
+    context_dict['town'] = textWrapper.town
+
+    # Contacts
+    context_dict['tel'] = textWrapper.telephone
+    context_dict['fax'] = textWrapper.fax
+    context_dict['email'] = textWrapper.email
+
+    print context_dict
+
+
+        # Initialize the registration step on first visit
     if 'rgstr_step' not in request.session:
         request.session.flush()
         request.session['rgstr_step'] = 0
@@ -33,7 +53,7 @@ def index(request):
         request.session['byear'] = request.POST.get('selbyear', '')
 
         request.session['rgstr_step'] += 1
-    
+
     # Data extraction from second part of registration
     elif request.method == 'POST' and request.session['rgstr_step'] == 1:
         request.session['em_forename'] = request.POST.get('em_forename', '')
@@ -93,13 +113,13 @@ def index(request):
             reference2_primary_phone=request.session['sr_pphone'],
             reference2_secondary_phone=request.session['sr_sphone'],
             reference2_email=request.session['sr_email'])
-        
+
         volapp.save()
         print "Volunteer Application saved"
         request.session.flush()
         request.session['rgstr_step'] = 0
-        
-    
+
+
     if request.session['rgstr_step'] != 0:
         context_dict['forename'] = request.session['forename']
 
@@ -114,19 +134,5 @@ def index(request):
     context_dict['v_years'] = list(
                               reversed(
                               range(1900, int(date.today().year) + 1)))
-
-    try:
-        textWrapper = Text.objects.get(id=1)
-
-        context_dict['intro'] = textWrapper.intro
-        context_dict['mission'] = textWrapper.mission
-        context_dict['description'] = textWrapper.description
-        context_dict['volunteerText'] = textWrapper.volunteer
-        context_dict['donate'] = textWrapper.donate
-        context_dict['address'] = textWrapper.location
-        context_dict['footerdonate'] = textWrapper.footerdonate
-        print context_dict
-    except:
-        pass
 
     return render(request, 'index.html', context_dict)

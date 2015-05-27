@@ -7,13 +7,18 @@ phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number mus
 
 class Text(models.Model):
     id = models.IntegerField(primary_key=True, default=1) # Variable for flexibility in future updates
-    intro = models.TextField()
     mission = models.TextField()
     description = models.TextField()
-    volunteer = models.TextField()
     donate = models.TextField()
-    footerdonate = models.TextField()
-    location = models.TextField()
+
+    addressL1 = models.TextField()
+    addressL2 = models.TextField()
+    postcode = models.CharField(max_length=10)
+    town = models.TextField()
+
+    telephone = models.IntegerField()
+    fax = models.IntegerField()
+    email = models.EmailField()
 
 # class Store(models.Model):
 #     id = models.IntegerField(primary_key=True, unique=True)
