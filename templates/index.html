@@ -15,12 +15,13 @@
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/static/css/freelancer.css" rel="stylesheet">
+    <link href="/static/css/stylesheet_index.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css">
 
     <link href="/static/css/volappcustom.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,493 +35,489 @@
 
 <body id="page-top" class="index">
 
-{% comment %}
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#page-top">OXFAM Hub</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">Who Are We</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#volunteer">Volunteers</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    {% endcomment %}
-
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <img src="/static/oxfam.png" class="img-responsive" alt="Logo">
-            {# TODO Photoshop new logo #}
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-text">
-                        <span class="name"> Oxfam <br/> #TODO Shipping Centre </span>
-                        {# TODO Check Shipping Location #}
-                        <hr class="star-light">
-                        <span class="skills"> {{ intro }} </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Our Mission Section -->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Our Mission</h2>
-                    <hr class="star-primary">
-                    <p>
-                        {{ mission }}
-                    </p>
-                    {# TODO Create database call #}
-                    {# Code for multiple rows #}
-                        {% comment %}
-                        <div class="row">
-                            <div class="col-lg-4 col-lg-offset-2">
-                                <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                            </div>
-                            <div class="col-lg-4">
-                                <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                            </div>
-                            <div class="col-lg-8 col-lg-offset-2 text-center">
-                                <a href="#" class="btn btn-lg btn-outline">
-                                    <i class="fa fa-download"></i> Download Theme
-                                </a>
-                            </div>
-                        </div>
-                        {% endcomment %}
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Shopping Centre Section -->
-    <section class="success" id="volunteer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2> How does the shipping hub fit in? </h2>
+<!-- Header -->
+<header>
+    <div class="container">
+        <img src="/static/oxfam-logo4.png" class="img-responsive" alt="Logo">
+        {# TODO Photoshop new logo #}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-text">
+                    <span class="name"> #TODO Shipping Centre </span>
+                    {# TODO Check Shipping Location #}
                     <hr class="star-light">
-                    <p>
-                        {{ description }}
-                    </p>
-                    {# TODO Create database call #}
+                    <span class="skills"> {{ intro }} </span>
                 </div>
             </div>
-
         </div>
-    </section>
+    </div>
+</header>
 
-  <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Get Involved</h2>
-                    <hr class="star-primary">
-                    <p>
-                        {{ volunteerText }}
-                    </p>
-                </div>
+<!-- Our Mission Section -->
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Our Mission</h2>
+                <hr class="star-primary">
+                <p>
+                    {{ mission }}
+                </p>
+
+
             </div>
+        </div>
 
-            {# TODO FORM #}
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
+    </div>
+</section>
 
-                    {% if rgstr_step != 0 %}
-                        <!-- Progress Bar -->
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" style="width:{{ rgstr_perc }}%">
-                                <h5 class="barprog">{{ rgstr_perc }}% Complete</h5>
+<!-- Shopping Centre Section -->
+<section class="success" id="volunteer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2> How does the shipping hub fit in? </h2>
+                <hr class="star-light">
+                <p>
+                    {{ description }}
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Application Section -->
+{# TODO Add Submition Action #}
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Get Involved</h2>
+                <hr class="star-primary">
+                <p>
+                    {{ volunteerText }}
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+
+                {% if rgstr_step != 0 %}
+                    <!-- Progress Bar -->
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                             style="width:{{ rgstr_perc }}%">
+                            <h5 class="barprog">{{ rgstr_perc }}% Complete</h5>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <!-- Start of Volunteer Application -->
+                <form role="form" method="post" action=".#contact" name="sentMessage" id="volapp" novalidate>
+
+                    {% csrf_token %}
+
+                    <!---#################### Registration first Form ####################-->
+                    {% if rgstr_step == 0 %}
+                        <!-- Forename field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Forename</label>
+                                <input type="text" class="form-control" placeholder="Forename" id="forename"
+                                       name="forename" maxlength="128" required
+                                       data-validation-required-message="Please enter your forename.">
+
+                                <p class="help-block text-danger">
+                                </p>
                             </div>
                         </div>
-                    {% endif %}
 
-                    <!-- Start of Volunteer Application -->
-                    <form role="form" method="post" action=".#contact" name="sentMessage" id="volapp" novalidate>
-                        
-                        {% csrf_token %}
-                        
-                        <!---#################### Registration first Form ####################-->
-                        {% if rgstr_step == 0 %}
-                            <!-- Forename field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Forename</label>
-                                    <input type="text" class="form-control" placeholder="Forename" id="forename" name="forename" maxlength="128" required data-validation-required-message="Please enter your forename.">
-                                    <p class="help-block text-danger">
-                                    </p>
-                                </div>
-                            </div>
+                        <!-- Surname field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Surname</label>
+                                <input type="text" class="form-control" placeholder="Surname" id="surname"
+                                       name="surname" maxlength="128" required
+                                       data-validation-required-message="Please enter your surname.">
 
-                            <!-- Surname field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Surname</label>
-                                    <input type="text" class="form-control" placeholder="Surname" id="surname" name="surname" maxlength="128" required data-validation-required-message="Please enter your surname.">
-                                    <p class="help-block text-danger">
-                                    </p>
-                                </div>
+                                <p class="help-block text-danger">
+                                </p>
                             </div>
-                            
-                            <!-- Primary Phone field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Primary Phone Number</label>
-                                    <input type="tel" class="form-control" placeholder="Primary Phone Number" id="pphone" name="pphone" maxlength="15" required data-validation-required-message="Please enter your primary phone number.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            
-                            <!-- Secondary Phone field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Secondary Phone Number (Optional)</label>
-                                    <input type="tel" class="form-control" placeholder="Secondary Phone Number (Optional)" id="sphone" name="sphone" maxlength="15">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
+                        </div>
 
-                            <!-- Address Field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Address</label>
-                                    <textarea rows="4" class="form-control" placeholder="Address" id="address" name="address" required data-validation-required-message="Please enter your full address."></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
+                        <!-- Primary Phone field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Primary Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="Primary Phone Number" id="pphone"
+                                       name="pphone" maxlength="15" required
+                                       data-validation-required-message="Please enter your primary phone number.">
 
-                            <!-- Birthday -->
-                            <div class="row control-group">
-                                <br>
-                                <div class="form-group col-md-4">
-                                    <h4>Birthday</h4><br>
-                                    <label class="bdaylabel" for="selbday">Day</label>
-                                    <select class="form-control" id="selbday" name="selbday">
-                                        {% for x in v_days %}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Phone field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Secondary Phone Number (Optional)</label>
+                                <input type="tel" class="form-control" placeholder="Secondary Phone Number (Optional)"
+                                       id="sphone" name="sphone" maxlength="15">
+
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+                        <!-- Address Field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Address</label>
+                                <textarea rows="4" class="form-control" placeholder="Address" id="address"
+                                          name="address" required
+                                          data-validation-required-message="Please enter your full address."></textarea>
+
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+                        <!-- Birthday -->
+                        <div class="row control-group">
+                            <br>
+
+                            <div class="form-group col-md-4">
+                                <h4>Birthday</h4><br>
+                                <label class="bdaylabel" for="selbday">Day</label>
+                                <select class="form-control" id="selbday" name="selbday">
+                                    {% for x in v_days %}
                                         <option>{{ x }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group col-md-4">
-                                    <h4 class="invtext">Birthday</h4><br>
-                                    <label class="bdaylabel" for="selbmonth">Month</label>
-                                    <select class="form-control" id="selbmonth" name="selbmonth">
-                                        {% for x in v_months %}
-                                        <option>{{ x }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group col-md-4">
-                                    <h4 class="invtext">Birthday</h4><br>
-                                    <label class="bdaylabel" for="selbyear">Year</label>
-                                    <select class="form-control" id="selbyear" name="selbyear">
-                                        {% for x in v_years %}
-                                        <option>{{ x }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
+                                    {% endfor %}
+                                </select>
                             </div>
+
+                            <div class="form-group col-md-4">
+                                <h4 class="invtext">Birthday</h4><br>
+                                <label class="bdaylabel" for="selbmonth">Month</label>
+                                <select class="form-control" id="selbmonth" name="selbmonth">
+                                    {% for x in v_months %}
+                                        <option>{{ x }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <h4 class="invtext">Birthday</h4><br>
+                                <label class="bdaylabel" for="selbyear">Year</label>
+                                <select class="form-control" id="selbyear" name="selbyear">
+                                    {% for x in v_years %}
+                                        <option>{{ x }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
 
                         <!---#################### Registration second Form ####################-->
-                        {% elif rgstr_step == 1 %}
-                            <!-- Emergency Contact Forename field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Emergency Contact Forename</label>
-                                    <input type="text" class="form-control" placeholder="Emergency Contact Forename" id="em_forename" name="em_forename" maxlength="128" required data-validation-required-message="Please enter your preferred emergency contact's forename.">
-                                    <p class="help-block text-danger">
-                                    </p>
-                                </div>
-                            </div>
+                    {% elif rgstr_step == 1 %}
+                        <!-- Emergency Contact Forename field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Emergency Contact Forename</label>
+                                <input type="text" class="form-control" placeholder="Emergency Contact Forename"
+                                       id="em_forename" name="em_forename" maxlength="128" required
+                                       data-validation-required-message="Please enter your preferred emergency contact's forename.">
 
-                            <!-- Emergency Contact Surname field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Emergency Contact Surname</label>
-                                    <input type="text" class="form-control" placeholder="Emergency Contact Surname" id="em_surname" name="em_surname" maxlength="128" required data-validation-required-message="Please enter your preferred emrgency contact's surname.">
-                                    <p class="help-block text-danger">
-                                    </p>
-                                </div>
+                                <p class="help-block text-danger">
+                                </p>
                             </div>
-                            
-                            <!-- Emergency Contact Phone field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Emergency Contact Phone Number</label>
-                                    <input type="tel" class="form-control" placeholder="Emergency Contact Phone Number" id="em_phone" name="em_phone" maxlength="15" required data-validation-required-message="Please enter your preferred emergency contact's phone number.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                        </div>
+
+                        <!-- Emergency Contact Surname field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Emergency Contact Surname</label>
+                                <input type="text" class="form-control" placeholder="Emergency Contact Surname"
+                                       id="em_surname" name="em_surname" maxlength="128" required
+                                       data-validation-required-message="Please enter your preferred emrgency contact's surname.">
+
+                                <p class="help-block text-danger">
+                                </p>
                             </div>
+                        </div>
+
+                        <!-- Emergency Contact Phone field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Emergency Contact Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="Emergency Contact Phone Number"
+                                       id="em_phone" name="em_phone" maxlength="15" required
+                                       data-validation-required-message="Please enter your preferred emergency contact's phone number.">
+
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
 
                         <!---#################### Registration third Form ####################-->
-                        {% elif rgstr_step == 2 %}
-                            <h3>You can skip this section</h3>
-                            <!-- 1st Reference Forename field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>1st Reference Forename</label>
-                                    <input type="text" class="form-control" placeholder="1st Reference Forename" id="fr_forename" name="fr_forename" maxlength="128">
-                                    <p class="help-block text-danger">
-                                    </p>
-                                </div>
-                            </div>
+                    {% elif rgstr_step == 2 %}
+                        <h3>You can skip this section</h3>
+                        <!-- 1st Reference Forename field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>1st Reference Forename</label>
+                                <input type="text" class="form-control" placeholder="1st Reference Forename"
+                                       id="fr_forename" name="fr_forename" maxlength="128">
 
-                            <!-- 1st Reference Surname field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>1st Reference Surname</label>
-                                    <input type="text" class="form-control" placeholder="1st Reference Surname" id="fr_surname" name="fr_surname" maxlength="128">
-                                    <p class="help-block text-danger">
-                                    </p>
-                                </div>
+                                <p class="help-block text-danger">
+                                </p>
                             </div>
-                            
-                            <!-- 1st Reference Primary Phone field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>1st Reference Primary Phone Number</label>
-                                    <input type="tel" class="form-control" placeholder="1st Reference Primary Phone Number" id="fr_pphone" name="fr_pphone" maxlength="15">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            
-                            <!-- 1st Reference Secondary Phone field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>1st Reference Secondary Phone Number (Optional)</label>
-                                    <input type="tel" class="form-control" placeholder="1st Reference Secondary Phone Number (Optional)" id="fr_sphone" name="fr_sphone" maxlength="15">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
+                        </div>
 
-                            <!-- 1st Reference Email -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls"><label>1st Reference Email Address</label>
-                                <input type="email" class="form-control" placeholder="1st Reference Email Address" id="fr_email" name="fr_email">
+                        <!-- 1st Reference Surname field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>1st Reference Surname</label>
+                                <input type="text" class="form-control" placeholder="1st Reference Surname"
+                                       id="fr_surname" name="fr_surname" maxlength="128">
+
+                                <p class="help-block text-danger">
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 1st Reference Primary Phone field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>1st Reference Primary Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="1st Reference Primary Phone Number"
+                                       id="fr_pphone" name="fr_pphone" maxlength="15">
+
                                 <p class="help-block text-danger"></p>
                             </div>
-                            <br><br><br><br>
+                        </div>
+
+                        <!-- 1st Reference Secondary Phone field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>1st Reference Secondary Phone Number (Optional)</label>
+                                <input type="tel" class="form-control"
+                                       placeholder="1st Reference Secondary Phone Number (Optional)" id="fr_sphone"
+                                       name="fr_sphone" maxlength="15">
+
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+                        <!-- 1st Reference Email -->
+                        <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls"><label>1st Reference Email
+                            Address</label>
+                            <input type="email" class="form-control" placeholder="1st Reference Email Address"
+                                   id="fr_email" name="fr_email">
+
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <br><br><br><br>
 
                         <!---#################### Registration fourth Form ####################-->
-                        {% elif rgstr_step == 3 %}
-                            <h3>You can skip this section</h3>
-                            <!-- 2nd Reference Forename field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>2nd Reference Forename</label>
-                                    <input type="text" class="form-control" placeholder="2nd Reference Forename" id="sr_forename" name="sr_forename" maxlength="128">
-                                    <p class="help-block text-danger">
-                                    </p>
-                                </div>
-                            </div>
+                    {% elif rgstr_step == 3 %}
+                        <h3>You can skip this section</h3>
+                        <!-- 2nd Reference Forename field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>2nd Reference Forename</label>
+                                <input type="text" class="form-control" placeholder="2nd Reference Forename"
+                                       id="sr_forename" name="sr_forename" maxlength="128">
 
-                            <!-- 2nd Reference Surname field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>2nd Reference Surname</label>
-                                    <input type="text" class="form-control" placeholder="2nd Reference Surname" id="sr_surname" name="sr_surname" maxlength="128">
-                                    <p class="help-block text-danger">
-                                    </p>
-                                </div>
+                                <p class="help-block text-danger">
+                                </p>
                             </div>
-                            
-                            <!-- 2nd Reference Primary Phone field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>2nd Reference Primary Phone Number</label>
-                                    <input type="tel" class="form-control" placeholder="2nd Reference Primary Phone Number" id="sr_pphone" name="sr_pphone" maxlength="15">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            
-                            <!-- 2nd Reference Secondary Phone field -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>2nd Reference Secondary Phone Number (Optional)</label>
-                                    <input type="tel" class="form-control" placeholder="2nd Reference Secondary Phone Number (Optional)" id="sr_sphone" name="sr_sphone" maxlength="15">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
+                        </div>
 
-                            <!-- 2nd Reference Email -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls"><label>2nd Reference Email Address</label>
-                                <input type="email" class="form-control" placeholder="2nd Reference Email Address" id="sr_email" name="sr_email">
+                        <!-- 2nd Reference Surname field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>2nd Reference Surname</label>
+                                <input type="text" class="form-control" placeholder="2nd Reference Surname"
+                                       id="sr_surname" name="sr_surname" maxlength="128">
+
+                                <p class="help-block text-danger">
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 2nd Reference Primary Phone field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>2nd Reference Primary Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="2nd Reference Primary Phone Number"
+                                       id="sr_pphone" name="sr_pphone" maxlength="15">
+
                                 <p class="help-block text-danger"></p>
                             </div>
-                            <br><br><br>
+                        </div>
+
+                        <!-- 2nd Reference Secondary Phone field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>2nd Reference Secondary Phone Number (Optional)</label>
+                                <input type="tel" class="form-control"
+                                       placeholder="2nd Reference Secondary Phone Number (Optional)" id="sr_sphone"
+                                       name="sr_sphone" maxlength="15">
+
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+                        <!-- 2nd Reference Email -->
+                        <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls"><label>2nd Reference Email
+                            Address</label>
+                            <input type="email" class="form-control" placeholder="2nd Reference Email Address"
+                                   id="sr_email" name="sr_email">
+
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <br><br><br>
 
                         <!---#################### Registration fifth Form ####################-->
-                        {% elif rgstr_step == 4 %}
-                            <!-- parental permission and permission to work checkboxes -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12">
-                                <br>
-                                <label>
-                                <input type="checkbox" name="par_perm" id="par_perm">
-                                <h3>Parental Permission</h3>
-                                </label>
-
-                                <br>
-                                <label>
-                                <input type="checkbox" name="work_perm" id="work_perm">
-                                <h3>Permission to Work</h3>
-                                </label>
-
-                            </div>
-                        </div>
-                        {% else %}
-                            <h3>{{ forename }} your application is ready!<br><br> Click Send Application and you will hear from us in about a week!</h3>
-                        {% endif %}
-                        
-    
-                        <!-- Send Button -->
-                        <br><br>
-                        <div id="success"></div>
-                            <div class="row">
+                    {% elif rgstr_step == 4 %}
+                        <!-- parental permission and permission to work checkboxes -->
+                        <div class="row control-group">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">
-                                {% if rgstr_step == 5 %}
-                                    Send Application
-                                {% else %}
-                                    Send
-                                {% endif %}
-                                </button>
+                                <br>
+
+                                <h2>Tick where appropriate</h2>
+
+                                <h3>I have...</h3>
+
+                                <div style="margin-left: 50px">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="par_perm" id="par_perm">
+
+                                        <h3>Parental Permission (If under 18)</h3>
+                                    </label>
+
+                                    <br>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="work_perm" id="work_perm">
+
+                                        <h3>Permission to Work in the UK</h3>
+                                    </label>
+                                </div>
+
                             </div>
                         </div>
-                    </form>
-
-                    <!-- Invisible Form for Skip button -->
-                    {% if rgstr_step == 2 or rgstr_step == 3 %}
-                    <br><br>
-                    <form role="form" method="post" action=".#contact" novalidate>
-                    {% csrf_token %}
-                        <div class="row">
-                        <div class="form-group col-xs-12">
-                            <button type="submit" id="skipform" class="btn btn-info btn-lg">Skip</button>
-                            <input type="text" class="invisible" name="skip" id="invskip" value="no">
-                        </div>
-                        </div>
+                    {% else %}
+                        <h2 style="text-justify: auto"> Thanks {{ forename }}, for completing the application.</h2>
+                        <h3>If you're are happy with the application, click submit.</h3>
                     {% endif %}
 
-                    <!-- Invisible Form for back button -->
-                    {% if rgstr_step != 0 %}
-                    <br><br>
-                    <form role="form" method="post" action=".#contact" novalidate>
-                    {% csrf_token %}
-                        <div class="row">
-                        <div class="form-group col-xs-12">
-                            <button type="submit" id="revert" class="btn btn-warning btn-lg">Go Back</button>
-                            <input type="text" class="invisible" name="back" id="invback" value="no">
-                        </div>
-                        </div>
-                    {% endif %}
+                    <div class="container">
+                        <br/><br/>
 
-                </div>
+                        <div class="btn-group-lg">
+                            <!-- Invisible Form for back button -->
+                            <form role="form" method="post" action=".#contact" novalidate>
+
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    {% if rgstr_step == 5 %}
+                                        Submit
+                                    {% else %}
+                                        Next
+                                    {% endif %}
+                                </button>
+
+                                {% if rgstr_step != 0 %}
+                                    {% csrf_token %}
+                                    <button type="submit" id="revert" class="btn btn-warning btn-lg">Previous
+                                    </button>
+                                    <input type="text" class="invisible" name="back" id="invback" value="no">
+                                {% endif %}
+
+
+                            </form>
+
+
+                        </div>
+                    </div>
+
+                    </div>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Donate Section -->
+
+<section class="success" id="volunteer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2> Support Us </h2>
+                <hr class="star-light">
+                <p>
+                    {{ donate }}
+                </p>
             </div>
         </div>
-    </section>
 
-    <!-- Donate Section -->
+        <div class="row">
 
-    <section class="success" id="volunteer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2> Support Us </h2>
-                    <hr class="star-light">
-                    <p>
-                    {{ donate }}
-                    </p>
-                    {# TODO Database Call #}
-                </div>
-            </div>
-
-            <div class="row">
-
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline"> Donate
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <a href="#" class="btn btn-warning btn-lg"> Donate
                     {# TODO ADD link #}
 
-                    </a>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col col-md-4">
+                    <h3>Location</h3>
+
+                    <p>{{ address }}</p>
+                </div>
+                <div class="footer-col col-md-4">
+                    <h3>Follow Us</h3>
+                    {# TODO Find Social Media Links #}
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col col-md-4">
+                    <h3>Support Us</h3>
+
+                    <p>{{ footerdonate }}</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-
-    <!-- Footer -->
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col col-md-4">
-                        <h3>Location</h3>
-                        <p>{{ address }}</p>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>Follow Us</h3>
-                        {# TODO Find Social Media Links #}
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>Support Us</h3>
-                        <p>{{ footerdonate }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% comment %} Extra Bar
+    {% comment %} Extra Bar
         <div class="footer-below">
             <div class="container">
                 <div class="row">
@@ -531,324 +528,35 @@
             </div>
         </div>
         {% endcomment %}
-    </footer>
 
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-top page-scroll visible-xs visible-sm">
-        <a class="btn btn-primary" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
-    </div>
+</footer>
 
-    {% comment %}<!-- Portfolio Modals -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="/static/img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="/static/img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="/static/img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="/static/img/portfolio/game.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="/static/img/portfolio/safe.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="/static/img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>{% endcomment %}
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll visible-xs visible-sm">
+    <a class="btn btn-primary" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
 
-    <!-- jQuery -->
-    <script src="/static/js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/static/js/bootstrap.min.js"></script>
+<!-- jQuery -->
+<script src="/static/js/jquery.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="/static/js/classie.js"></script>
-    <script src="/static/js/cbpAnimatedHeader.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/static/js/bootstrap.min.js"></script>
 
-    <!-- Contact Form JavaScript -->
-    <script src="/static/js/jqBootstrapValidation.js"></script>
-    <script src="/static/js/contact_me.js"></script>
+<!-- Plugin JavaScript -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="/static/js/classie.js"></script>
+<script src="/static/js/cbpAnimatedHeader.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="/static/js/freelancer.js"></script>
+<!-- Contact Form JavaScript -->
+<script src="/static/js/jqBootstrapValidation.js"></script>
+<script src="/static/js/contact_me.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/static/js/freelancer.js"></script>
 
 </body>
 
 </html>
-
-{% comment %} PORTEFOLIO EXAMPLE
-
-<div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/static/img/portfolio/cabin.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/static/img/portfolio/cake.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/static/img/portfolio/circus.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/static/img/portfolio/game.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/static/img/portfolio/safe.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/static/img/portfolio/submarine.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-            </div>
-
-            {% endcomment %}
