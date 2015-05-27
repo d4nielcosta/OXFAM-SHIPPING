@@ -17,3 +17,13 @@
 {
 	visibility: hidden;
 }
+
+#submitdiv, #previousdiv
+{
+	float: left;
+}
+
+#previousdiv
+{
+	padding-left: 0.5em;
+}

@@ -130,8 +130,11 @@
                 {% endif %}
 
                 <!-- Start of Volunteer Application -->
-                <form role="form" method="post" action=".#contact" name="sentMessage" id="volapp" novalidate>
-
+                {% if rgstr_step != 5 %}
+                    <form role="form" method="post" action=".#contact" name="sentMessage" id="volapp" novalidate>
+                {% else %}
+                    <form role="form" method="post" action="." name="sentMessage" id="volapp" novalidate>
+                {% endif %}
                     {% csrf_token %}
 
                     <!---#################### Registration first Form ####################-->
@@ -430,25 +433,27 @@
                     <div class="container">
                         <br/><br/>
 
-                        <div class="btn-group-lg">
-                            <form role="form" method="post" action=".#contact" style="display: inline" novalidate>
-                                <button type="submit" class="btn btn-success btn-lg">
-                                    {% if rgstr_step == 5 %}
-                                        Submit
-                                    {% else %}
-                                        Next
-                                    {% endif %}
-                                </button>
-
-                                {% if rgstr_step != 0 %}
-                                    {% csrf_token %}
-                                    <button type="submit" id="revert" class="btn btn-warning btn-lg">Previous
-                                    </button>
-                                    <input type="text" class="invisible" name="back" id="invback" value="no">
+                        <div class="btn-group-lg" id="submitdiv">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                {% if rgstr_step == 5 %}
+                                    Submit
+                                {% else %}
+                                    Next
                                 {% endif %}
+                            </button>
+                        </div>
+                        <div class="btn-group-lg" id="previousdiv">
+                        </form>
+                        <form role="form" method="post" action=".#contact" style="display: inline" novalidate>
+                            {% if rgstr_step != 0 %}
+                                {% csrf_token %}
+                                <button type="submit" id="revert" class="btn btn-warning btn-lg">Previous
+                                </button>
+                                <input type="text" class="invisible" name="back" id="invback" value="no">
+                            {% endif %}
                             </form>
-
                             </div>
+                          </div>
                         </div>
                     </div>
                 </div>
