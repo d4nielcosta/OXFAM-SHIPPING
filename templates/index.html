@@ -94,6 +94,7 @@
         <div class="row">
 
             <div class="col-lg-8 col-lg-offset-2 text-center">
+                <br/>
                 <a href="http://www.oxfam.org.uk/donate" class="btn btn-warning btn-lg"> Donate
                     {# TODO ADD link #}
 
@@ -430,6 +431,7 @@
                         <br/><br/>
 
                         <div class="btn-group-lg">
+                            <form role="form" method="post" action=".#contact" style="display: inline" novalidate>
                                 <button type="submit" class="btn btn-success btn-lg">
                                     {% if rgstr_step == 5 %}
                                         Submit
@@ -437,15 +439,14 @@
                                         Next
                                     {% endif %}
                                 </button>
-                            </form>
+
                                 {% if rgstr_step != 0 %}
-                                    <form role="form" method="post" action=".#contact" novalidate>
                                     {% csrf_token %}
                                     <button type="submit" id="revert" class="btn btn-warning btn-lg">Previous
                                     </button>
                                     <input type="text" class="invisible" name="back" id="invback" value="no">
-                                    </form>
                                 {% endif %}
+                            </form>
 
                             </div>
                         </div>
