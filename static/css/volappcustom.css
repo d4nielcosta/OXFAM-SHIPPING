@@ -1,0 +1,19 @@
+.progress
+{
+	height: 50px;
+}
+
+.barprog
+{
+	line-height: 210%;
+}
+
+.bdaylabel
+{
+	text-align: center;
+}
+
+.invisible
+{
+	visibility: hidden;
+}

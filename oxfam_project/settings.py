@@ -22,6 +22,7 @@ SECRET_KEY = 'sca=lyn3^d%rguvujyz@c-t*(!nypcngsrq$mw^ki$b&$j%8%_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []

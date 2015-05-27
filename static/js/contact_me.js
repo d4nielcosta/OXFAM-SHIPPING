@@ -55,6 +55,14 @@ $(function() {
     });
 });
 
+$('#revert').click(function(){
+    document.getElementById('invback').value = "yes"
+});
+
+$('#skipform').click(function(){
+    document.getElementById('invskip').value = "yes"
+});
+
 // When clicking on Full hide fail/success boxes
 $('#name').focus(function() {
     $('#success').html('');
