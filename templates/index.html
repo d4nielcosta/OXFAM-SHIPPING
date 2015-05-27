@@ -430,9 +430,6 @@
                         <br/><br/>
 
                         <div class="btn-group-lg">
-                            <!-- Invisible Form for back button -->
-                            <form role="form" method="post" action=".#contact" novalidate>
-
                                 <button type="submit" class="btn btn-success btn-lg">
                                     {% if rgstr_step == 5 %}
                                         Submit
@@ -440,25 +437,21 @@
                                         Next
                                     {% endif %}
                                 </button>
-
+                            </form>
                                 {% if rgstr_step != 0 %}
+                                    <form role="form" method="post" action=".#contact" novalidate>
                                     {% csrf_token %}
                                     <button type="submit" id="revert" class="btn btn-warning btn-lg">Previous
                                     </button>
                                     <input type="text" class="invisible" name="back" id="invback" value="no">
+                                    </form>
                                 {% endif %}
 
-
-                            </form>
-
-
+                            </div>
                         </div>
                     </div>
-
-                    </div>
-                    </div>
+                </div>
             </div>
-
         </div>
     </div>
 </section>
