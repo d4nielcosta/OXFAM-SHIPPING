@@ -7,7 +7,14 @@ urlpatterns = patterns('',
     # url(r'^$', 'oxfam_project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^index/$', general.views.index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^oxfam/', include('general.urls')),
-    url(r'^index/$', general.views.index, name='index'),
+    url(r'^', general.views.index, name='index'),
+
 )
+
+
+handler400 = 'general.views.index'
+handler404 = 'general.views.index'
+handler500 = 'general.views.index'

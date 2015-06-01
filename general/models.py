@@ -51,6 +51,7 @@ class VolunteerApplication(models.Model):
     surname = models.CharField(max_length=128)
     primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
     secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+    email = models.EmailField()
 
     role = models.TextField()
 
@@ -70,7 +71,6 @@ class VolunteerApplication(models.Model):
     reference1_forename = models.CharField(max_length=128, blank=True, default="")
     reference1_surname = models.CharField(max_length=128, blank=True, default="")
     reference1_primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
-    reference1_secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
     reference1_email = models.EmailField(blank=True, default="")
 
 
@@ -78,7 +78,6 @@ class VolunteerApplication(models.Model):
     reference2_forename = models.CharField(max_length=128, blank=True, default="")
     reference2_surname = models.CharField(max_length=128, blank=True, default="")
     reference2_primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
-    reference2_secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
     reference2_email = models.EmailField(blank=True, default="")
 
     def save(self, *args, **kwargs):

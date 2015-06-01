@@ -2,6 +2,9 @@ from django.shortcuts import render
 from datetime import date
 from models import *
 import calendar
+from django.core.mail import send_mail
+from django.conf import settings
+
 # Create your views here.
 
 def getDateTimeField(day, month, year):
@@ -47,6 +50,7 @@ def index(request):
         request.session['surname'] = request.POST.get('surname', '')
         request.session['primary_phone'] = request.POST.get('pphone', '')
         request.session['secondary_phone'] = request.POST.get('sphone', '')
+        request.session['email'] = request.POST.get('email', '')
         request.session['address'] = request.POST.get('address', '')
         request.session['bday'] = request.POST.get('selbday', '')
         request.session['bmonth'] = request.POST.get('selbmonth', '')
@@ -67,7 +71,6 @@ def index(request):
         request.session['fr_forename'] = request.POST.get('fr_forename', '')
         request.session['fr_surname'] = request.POST.get('fr_surname', '')
         request.session['fr_pphone'] = request.POST.get('fr_pphone', '')
-        request.session['fr_sphone'] = request.POST.get('fr_sphone', '')
         request.session['fr_email'] = request.POST.get('fr_email', '')
 
         request.session['rgstr_step'] += 1
@@ -77,7 +80,6 @@ def index(request):
         request.session['sr_forename'] = request.POST.get('sr_forename', '')
         request.session['sr_surname'] = request.POST.get('sr_surname', '')
         request.session['sr_pphone'] = request.POST.get('sr_pphone', '')
-        request.session['sr_sphone'] = request.POST.get('sr_sphone', '')
         request.session['sr_email'] = request.POST.get('sr_email', '')
 
         request.session['rgstr_step'] += 1
@@ -96,6 +98,7 @@ def index(request):
             surname=request.session['surname'],
             primary_phone=request.session['primary_phone'],
             secondary_phone=request.session['secondary_phone'],
+            email = request.session['email'],
             dob=bday,
             parental_permission=request.session['par_perm'],
             permission_to_work=request.session['work_perm'],
@@ -106,16 +109,55 @@ def index(request):
             reference1_forename=request.session['fr_forename'],
             reference1_surname=request.session['fr_surname'],
             reference1_primary_phone=request.session['fr_pphone'],
-            reference1_secondary_phone=request.session['fr_sphone'],
             reference1_email=request.session['fr_email'],
             reference2_forename=request.session['sr_forename'],
             reference2_surname=request.session['sr_surname'],
             reference2_primary_phone=request.session['sr_pphone'],
-            reference2_secondary_phone=request.session['sr_sphone'],
             reference2_email=request.session['sr_email'])
 
         volapp.save()
+
+
+        # Send Email
+        subject = 'OXFAM - Thank you for applying to volunteer with us.'
+        from_email = settings.EMAIL_HOST_USER
+        to_list = [volapp.email]
+        message = \
+            "Hi. Thank you for applying to volunteer with us. We will get in touch with you as soon as possible. \n " \
+            "In the meanwhile, here's a copy of your application: \n " \
+            "YOUR DETAILS \n" \
+            "       Forename: " + volapp.forename + "\n" \
+            "       Surname: " + volapp.surname + "\n" \
+            "       Email: " + volapp.email + "\n" \
+            "       Primary Phone: " + volapp.primary_phone + "\n" \
+            "       Secondary Phone: " + volapp.secondary_phone + "\n" \
+            "       Date of Birth: " + volapp.dob.strftime('%d/%m/%Y') + "\n" \
+            "       Address \n" + volapp.address + "\n \n "\
+            "PERMISSION TO WORK \n" \
+            "       In the UK (goverment) " + str(volapp.permission_to_work) + "\n" \
+            "       Parental Permission (if minor) " + str(volapp.parental_permission) + "\n" \
+            "\n" \
+            "EMERGENCY CONTACT" + "\n" \
+            "       Name: " + volapp.emergency_contact_forename + volapp.emergency_contact_surname + "\n" \
+            "       Phone Number: " + volapp.emergency_contact_phone + "\n" \
+            "\n" \
+            "REFERENCES" + "\n" \
+            "       Forename: " + volapp.reference1_forename + "\n" \
+            "       Surname: " + volapp.reference1_surname + "\n" \
+            "       Phone: " + volapp.reference1_primary_phone + "\n" \
+            "       Email: " + volapp.reference1_email + "\n" \
+            "\n" \
+            "       Forename: " + volapp.reference2_forename + "\n" \
+            "       Surname: " + volapp.reference2_surname + "\n" \
+            "       Phone: " + volapp.reference2_primary_phone + "\n" \
+            "       Email: " + volapp.reference2_email + "\n" \
+            "\n \n"\
+            "Best Regards \n The Oxfam Team"
+
+        send_mail(subject, message, from_email, to_list, fail_silently=False)
+
         print "Volunteer Application saved"
+
         request.session.flush()
         request.session['rgstr_step'] = 0
 
@@ -134,5 +176,6 @@ def index(request):
     context_dict['v_years'] = list(
                               reversed(
                               range(1900, int(date.today().year) + 1)))
+
 
     return render(request, 'index.html', context_dict)

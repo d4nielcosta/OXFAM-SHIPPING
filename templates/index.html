@@ -11,6 +11,22 @@
 
     <title> Oxfam - Shipping Centre </title>
 
+    {# FAVICON #}
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
@@ -39,7 +55,6 @@
 <header>
     <div class="container">
         <img src="/static/oxfam-logo4.png" class="img-responsive" alt="Logo">
-        {# TODO Photoshop new logo #}
         <div class="row">
             <div class="col-lg-12">
                 <div class="intro-text">
@@ -113,6 +128,7 @@
             <div class="col-lg-12 text-center">
                 <h2>Get Involved</h2>
                 <hr class="star-primary">
+                <p style="text-align: center"> Fill this form to volunteer in the Shipping Centre</p>
             </div>
         </div>
 
@@ -165,6 +181,18 @@
                             </div>
                         </div>
 
+                        <!-- Email field -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Email Address</label>
+                                <input type="email" class="form-control" placeholder="Email Address"
+                                   id="email" name="email">
+
+                            <p class="help-block text-danger"></p>
+
+                            </div>
+                        </div>
+
                         <!-- Primary Phone field -->
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -188,6 +216,8 @@
                             </div>
                         </div>
 
+
+
                         <!-- Address Field -->
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -203,9 +233,10 @@
                         <!-- Birthday -->
                         <div class="row control-group">
                             <br>
-
+                            <h4>Date of Birth</h4><br>
                             <div class="form-group col-md-4">
-                                <h4>Birthday</h4><br>
+
+                                <h4>Day</h4><br>
                                 <label class="bdaylabel" for="selbday">Day</label>
                                 <select class="form-control" id="selbday" name="selbday">
                                     {% for x in v_days %}
@@ -215,7 +246,7 @@
                             </div>
 
                             <div class="form-group col-md-4">
-                                <h4 class="invtext">Birthday</h4><br>
+                                <h4 class="invtext">Month</h4><br>
                                 <label class="bdaylabel" for="selbmonth">Month</label>
                                 <select class="form-control" id="selbmonth" name="selbmonth">
                                     {% for x in v_months %}
@@ -225,7 +256,7 @@
                             </div>
 
                             <div class="form-group col-md-4">
-                                <h4 class="invtext">Birthday</h4><br>
+                                <h4 class="invtext">Year</h4><br>
                                 <label class="bdaylabel" for="selbyear">Year</label>
                                 <select class="form-control" id="selbyear" name="selbyear">
                                     {% for x in v_years %}
@@ -313,18 +344,6 @@
                             </div>
                         </div>
 
-                        <!-- 1st Reference Secondary Phone field -->
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>1st Reference Secondary Phone Number (Optional)</label>
-                                <input type="tel" class="form-control"
-                                       placeholder="1st Reference Secondary Phone Number (Optional)" id="fr_sphone"
-                                       name="fr_sphone" maxlength="15">
-
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-
                         <!-- 1st Reference Email -->
                         <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls"><label>1st Reference Email
@@ -374,17 +393,6 @@
                             </div>
                         </div>
 
-                        <!-- 2nd Reference Secondary Phone field -->
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>2nd Reference Secondary Phone Number (Optional)</label>
-                                <input type="tel" class="form-control"
-                                       placeholder="2nd Reference Secondary Phone Number (Optional)" id="sr_sphone"
-                                       name="sr_sphone" maxlength="15">
-
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
 
                         <!-- 2nd Reference Email -->
                         <div class="row control-group">
