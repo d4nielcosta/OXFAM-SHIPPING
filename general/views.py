@@ -140,3 +140,7 @@ def index(request):
 
 
     return render(request, 'index.html', context_dict)
+
+def manager(request):
+    context_dict = {}
+    return render(request, 'manager.html', context_dict)
