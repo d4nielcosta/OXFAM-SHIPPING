@@ -139,4 +139,4 @@ def index(request):
                               range(1900, int(date.today().year) + 1)))
 
 
-    return render(request, 'index.html', context_dict)
+    return render(request, 'general/index.html', context_dict)

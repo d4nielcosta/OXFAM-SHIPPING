@@ -147,9 +147,9 @@
 
                 <!-- Start of Volunteer Application -->
                 {% if rgstr_step != 5 %}
-                    <form role="form" method="post" action=".#contact" name="sentMessage" id="volapp" novalidate>
+                    <form role="form" method="post" action="../#contact" name="sentMessage" id="volapp" novalidate>
                 {% else %}
-                    <form role="form" method="post" action="." name="sentMessage" id="volapp" novalidate>
+                    <form role="form" method="post" action="../" name="sentMessage" id="volapp" novalidate>
                 {% endif %}
                     {% csrf_token %}
 
@@ -452,7 +452,7 @@
                         </div>
                         <div class="btn-group-lg" id="previousdiv">
                         </form>
-                        <form role="form" method="post" action=".#contact" style="display: inline" novalidate>
+                        <form role="form" method="post" action="../#contact" style="display: inline" novalidate>
                             {% if rgstr_step != 0 %}
                                 {% csrf_token %}
                                 <button type="submit" id="revert" class="btn btn-warning btn-lg">Previous
