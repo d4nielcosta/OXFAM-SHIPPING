@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Kilmarnock Online Hub </title>
+    {# TODO Check if Favicon works #}
+    <link rel="shortcut icon" type="image/png" href="/static/favicon.ico">
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/css/stylesheet_index.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css">
+
+    <link href="/static/css/volappcustom.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <img src="/static/oxfam-logo4.png" class="img-responsive" alt="Logo">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-text">
+                    <span class="name"> Kilmarnock Online Hub </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Our Mission Section -->
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Our Mission</h2>
+                <hr class="star-primary">
+                <p>
+                    {{ mission }}
+                </p>
+
+                <br/><br/>
+                <div class="col-lg-12 text-center">
+                <h2> How does the shipping hub fit in? </h2>
+                <hr class="star-primary">
+                <p>
+                    {{ description }}
+                </p>
+
+            </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Donate Section -->
+
+<section class="success" id="volunteer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2> Support Us </h2>
+                <hr class="star-light">
+                <p style="text-align: center">
+                    {{ donate }}
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <br/>
+                <a href="http://www.oxfam.org.uk/donate" class="btn btn-warning btn-lg"> Donate </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Application Section -->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Get Involved</h2>
+                <hr class="star-primary">
+                <p style="text-align: center">
+                    {{ getinvolved }}
+                </p>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <a href="/static/Oxfam_Vol_App_Form.pdf" class="btn btn-warning btn-lg"> Application </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col col-md-4">
+                    <h3>Location</h3>
+                    <p>
+                    45 Foregate <br>
+                    Kilmarnock  KA1 1LO
+                    </p>
+                </div>
+                <div class="footer-col col-md-4">
+                    <h3>Follow Us</h3>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="http://www.oxfam.org.uk/" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/oxfamGB?fref=ts" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://plus.google.com/+OxfamGB/posts" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/oxfamgb" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/company/6884?trk=tyah&trkInfo=clickedVertical%3Acompany%2Cidx%3A2-1-4%2CtarId%3A1432743469520%2Ctas%3Aoxfam" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="footer-col col-md-4">
+                    <h3>Contact Us</h3>
+
+                    <p>01563 531394 <br>
+                    OxfamShopF5945@oxfam.org.uk
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll visible-xs visible-sm">
+    <a class="btn btn-primary" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+
+
+<!-- jQuery -->
+<script src="/static/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/static/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="/static/js/classie.js"></script>
+<script src="/static/js/cbpAnimatedHeader.js"></script>
+
+<!-- Contact Form JavaScript -->
+<script src="/static/js/jqBootstrapValidation.js"></script>
+<script src="/static/js/contact_me.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/static/js/freelancer.js"></script>
+
+</body>
+
+</html>

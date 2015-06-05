@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'general',
+    'volunteer',
+    'manager',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -92,10 +93,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = '/static/'
 STATIC_PATH = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (STATIC_PATH,)
-
-# Email
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'mail.gmx.com'
-EMAIL_HOST_USER = "danielcosta@gmx.com"
-EMAIL_HOST_PASSWORD = "n1ghtm4re"
-EMAIL_PORT = 587
