@@ -1,0 +1,28 @@
+#shoplist
+{
+	padding-top:120px;
+}
+
+.shop-container
+{
+	background-color:#18BC9C;
+	border-color:#18BC9C;
+}
+
+.shop-padding
+{
+	padding-top:2px;
+}
+
+.hidden
+{
+	display: none;
+}
+
+#shop-commodities
+{
+	overflow: auto;
+	overflow-x:hidden;
+	padding-left: 14px;
+	height:300px;
+}
