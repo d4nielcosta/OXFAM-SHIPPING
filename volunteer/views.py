@@ -28,4 +28,4 @@ def index(request):
     context_dict['getinvolved'] = textWrapper.getinvolved
     context_dict['donate'] = textWrapper.donate
 
-    return render(request, 'index.html', context_dict)
+    return render(request, 'volunteer/index.html', context_dict)
