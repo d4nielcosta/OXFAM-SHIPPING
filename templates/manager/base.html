@@ -44,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href=""> <img style="max-width:200px; margin-top: -40px;"
+            <a class="navbar-brand" href="{% url 'index' %}"> <img style="max-width:200px; margin-top: -40px;"
              src="/static/oxfam-logo4.png"> </a>
         </div>
         <div class="navbar-collapse collapse">
@@ -53,10 +53,10 @@
                 <li><a href="">Link2</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="">Auth_Link3</a></li>
-                <li><a href="">Logout</a></li>
+                <li><a href="{% url 'auth_logout' %}">Logout</a></li>
                 {% else %}
                 <li><a href="">Not_Auth_Link4</a></li>
-                <li><a href="">Login</a></li>
+                <li><a href="{% url 'auth_login' %}">Login</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -74,7 +74,7 @@
 </section>
 
 {# Content Block #}
-<div style="margin-left: 20px; margin-right: 20px;">
+<div style="margin-left: 20px; margin-right: 20px; padding-left: 20px; margin-top: 0px;">
 {% block content %} {% endblock %}
 </div>
 

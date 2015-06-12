@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration',
     'volunteer',
     'manager',
 )
@@ -93,3 +94,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = '/static/'
 STATIC_PATH = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (STATIC_PATH,)
+
+
+#Redux
+REGISTRATION_OPEN = False
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/manager/index'
+LOGIN_URL = '/accounts/login/'
