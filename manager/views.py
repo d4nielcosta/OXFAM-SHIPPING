@@ -14,7 +14,8 @@ def manager(request):
 def storerank(request):
     shop_list = Shop.objects.all()
     context_dict = {'shops': shop_list}
-
+    for shop in shop_list:
+    	shop.nwname = shop.name.replace(' ', '_');
     return render(request, 'saleslog.html', context_dict)
 
 @login_required

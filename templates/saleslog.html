@@ -70,8 +70,8 @@
         <!-- Portfolio Item Row -->
         {% for shop in shops %}
         <div class="row shop-padding">
-            <button type="button" class="btn-block btn-info btn-lg shop-container" id="{{ shop.name }}-button" onclick="toggleContent('{{ shop.name }}-section');">{{ shop.name }}</button>
-            <div class="jumbotron" style="display:none" id="{{ shop.name }}-section">
+            <button type="button" class="btn-block btn-info btn-lg shop-container" id="{{ shop.name }}-button" onclick="toggleContent('{{ shop.nwname }}_section');">{{ shop.name }}</button>
+            <div class="jumbotron" style="display:none" id="{{ shop.nwname }}_section">
                 <div id="shop-details">
                     <h2 class="page-header">Shop Details</h2>
                     <h4>
