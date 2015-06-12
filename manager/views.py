@@ -12,11 +12,16 @@ def manager(request):
 
 @login_required
 def storerank(request):
+    return render(request, 'manager/index.html')
+
+@login_required
+def allstores(request):
     shop_list = Shop.objects.all()
     context_dict = {'shops': shop_list}
     for shop in shop_list:
-    	shop.nwname = shop.name.replace(' ', '_');
-    return render(request, 'saleslog.html', context_dict)
+        shop.nwname = shop.name.replace(' ', '_');
+    
+    return render(request, 'manager/allstores.html', context_dict)
 
 @login_required
 def index(request):

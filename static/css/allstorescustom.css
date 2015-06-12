@@ -1,9 +1,17 @@
-#shoplist
+#shoprank
 {
-	padding-top:120px;
+	padding-top: 100px;	
+	margin-left: -20px;
 }
 
 .shop-container
+{
+	background-color:#18BC9C;
+	border-color:#18BC9C;
+	outline: none;
+}
+
+.shop-container:hover
 {
 	background-color:#18BC9C;
 	border-color:#18BC9C;

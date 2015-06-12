@@ -1,0 +1,39 @@
+{% extends "manager/base.html" %}
+
+{% block content %}
+    <!-- Page Content -->
+    <section id="shoprank">
+        <!-- Portfolio Item Row -->
+        {% for shop in shops %}
+        <div class="row shop-padding">
+            <button type="button" class="btn-block btn-info btn-lg shop-container" id="{{ shop.name }}-button" onclick="toggleContent('{{ shop.nwname }}_section');">{{ shop.name }}</button>
+            <div class="jumbotron" style="display:none" id="{{ shop.nwname }}_section">
+                <div id="shop-details">
+                    <h2 class="page-header">Shop Details</h2>
+                    <h4>
+                    Name: {{ shop.name }}<br><br>
+                    Address: {{ shop.address }}<br><br>
+                    Email: {{ shop.email }}<br><br>
+                    </h4>
+                </div>
+                <h2 class="page-header">Shop Commodities</h2>
+                <div id="shop-commodities">
+                    {% for x in "ABCDASDHALDHASJEDLAKJLKJAELK" %}
+                    <div class="row">
+                        <h4>Commodity: {{ x }}</h4>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="/static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/saleslog.js"></script>
+{% endblock %}

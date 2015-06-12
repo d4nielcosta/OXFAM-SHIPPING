@@ -17,7 +17,7 @@
 
     <!-- Custom CSS -->
     <link href="/static/css/stylesheet.css" rel="stylesheet">
-
+    <link href="/static/css/allstorescustom.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -69,7 +69,7 @@
             <span/>
         <a href="{% url 'storerank' %}" style="color: white">Store Rank</a>
             <span/>
-        <a href="" style="color: white">All Stores</a>
+        <a href="{% url 'allstores' %}" style="color: white">All Stores</a>
             <span/>
         <a href="{% url 'dev' %}" style="color: white">Developers</a>
     </p>
