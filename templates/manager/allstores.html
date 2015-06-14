@@ -13,83 +13,24 @@
                     </div>
                 </div>
                 <div class="row">
+                    {% for shop_index in shops_and_commodities %}
                     <div class="col-sm-4 portfolio-item">
-                        <a href="#ptf1" class="portfolio-link" data-toggle="modal">
+                        <a href="#{{ shop_index.0.nwname }}" class="portfolio-link" data-toggle="modal">
                             <div class="caption">
                                 <div class="caption-content">
                                     <i class="fa fa-search-plus fa-3x"></i>
                                 </div>
                             </div>
+                            <!-- TODO correct image placement -->
                             <img src="/static/img/a.jpg" class="img-responsive" alt="">
 
-                            <h3>Byres Road - Book Shop</h3>
+                            <h3>{{ shop_index.0.name }}</h3>
                         </a>
                     </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#ptf1" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="/static/img/b.jpg" class="img-responsive" alt="">
-
-                            <h3>Troon Academy </h3>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#ptf1" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="/static/img/c.jpg" class="img-responsive" alt="">
-
-                            <h3>Test Store 3</h3>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#ptf1" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="/static/img/d.jpg" class="img-responsive" alt="">
-
-                            <h3>Test Store 4</h3>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#ptf1" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="/static/img/e.jpg" class="img-responsive" alt="">
-
-                            <h3>Test Store 5</h3>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#ptf1" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="/static/img/f.jpg" class="img-responsive" alt="">
-
-                            <h3>Test Store 6</h3>
-                        </a>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
-
-
     </section>
 
 
@@ -97,25 +38,25 @@
     <section id="shoprank">
 
         <!-- Portfolio Item Row -->
-        {% for shop in shops %}
+        {% for shop_index in shops_and_commodities %}
             <div class="row shop-padding">
-                <button type="button" class="btn-block btn-info btn-lg shop-container" id="{{ shop.name }}-button"
-                        onclick="toggleContent('{{ shop.nwname }}_section');">{{ shop.name }}</button>
-                <div class="jumbotron" style="display:none" id="{{ shop.nwname }}_section">
+                <button type="button" class="btn-block btn-info btn-lg shop-container" id="{{ shop_index.0.name }}-button"
+                        onclick="toggleContent('{{ shop_index.0.nwname }}_section');">{{ shop_index.0.name }}</button>
+                <div class="jumbotron" style="display:none" id="{{ shop_index.0.nwname }}_section">
                     <div id="shop-details">
                         <h2 class="page-header">Shop Details</h2>
                         <h4>
-                            Name: {{ shop.name }}<br><br>
-                            Address: {{ shop.address }}<br><br>
-                            Email: {{ shop.email }}<br><br>
+                            Name: {{ shop_index.0.name }}<br><br>
+                            Address: {{ shop_index.0.address }}<br><br>
+                            Email: {{ shop_index.0.email }}<br><br>
                         </h4>
                     </div>
                     <h2 class="page-header">Shop Commodities</h2>
 
                     <div id="shop-commodities">
-                        {% for x in "ABCDASDHALDHASJEDLAKJLKJAELK" %}
+                        {% for commodity in shop_index.1 %}
                             <div class="row">
-                                <h4>Commodity: {{ x }}</h4>
+                                <h4>Commodity: {{ commodity.name }}</h4>
                             </div>
                         {% endfor %}
                     </div>
@@ -126,7 +67,8 @@
     <!-- /.container -->
 
     <!-- Portfolio Modals -->
-    <div class="portfolio-modal modal fade" id="ptf1" tabindex="-1" role="dialog" aria-hidden="true">
+    {% for shop_index in shops_and_commodities %}
+    <div class="portfolio-modal modal fade" id="{{ shop_index.0.nwname }}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -138,7 +80,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Glasgow - Byres Road</h2>
+                            <h2>{{ shop_index.0.name }}</h2>
                             <hr class="star-primary">
 
 
@@ -152,9 +94,9 @@
                             <h3>Commodities</h3>
                             <hr class="star-primary">
                             <p><br/>
-                                {% for x in "ABCDA" %}
+                                {% for commodity in shop_index.1 %}
                                     <div class="row">
-                                        <h4>Commodity: {{ x }}</h4>
+                                        <h4>{{ commodity.name }}</h4>
                                     </div>
                                 {% endfor %}
                             </p>
@@ -167,7 +109,7 @@
             </div>
         </div>
     </div>
-
+    {% endfor %}
 
     <!-- jQuery -->
     <script src="/static/js/jquery.js"></script>
@@ -176,223 +118,3 @@
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/saleslog.js"></script>
 {% endblock %}
-
-
-{% comment %}
-
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon
-                                set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you
-                                can download their free set with 16 icons, or you can purchase the entire set with 146
-                                icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i
-                                    class="fa fa-times"></i> Close
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon
-                                set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you
-                                can download their free set with 16 icons, or you can purchase the entire set with 146
-                                icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i
-                                    class="fa fa-times"></i> Close
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
-
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon
-                                set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you
-                                can download their free set with 16 icons, or you can purchase the entire set with 146
-                                icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i
-                                    class="fa fa-times"></i> Close
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
-
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon
-                                set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you
-                                can download their free set with 16 icons, or you can purchase the entire set with 146
-                                icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i
-                                    class="fa fa-times"></i> Close
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
-
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon
-                                set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you
-                                can download their free set with 16 icons, or you can purchase the entire set with 146
-                                icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i
-                                    class="fa fa-times"></i> Close
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endcomment %}
