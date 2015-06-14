@@ -11,12 +11,29 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Shop',
+            name='Commodity',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('title', models.CharField(max_length=128)),
+                ('description', models.TextField()),
+                ('tracknumber', models.CharField(max_length=128)),
+                ('price', models.IntegerField()),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Shop',
+            fields=[
+                ('oxfamID', models.CharField(max_length=10, serialize=False, primary_key=True)),
                 ('name', models.CharField(max_length=128)),
+                ('manager', models.TextField()),
                 ('email', models.EmailField(default=b'', max_length=75, blank=True)),
-                ('address', models.TextField(default=b'', max_length=300, blank=True)),
+                ('phonenumber', models.TextField()),
+                ('addressL1', models.TextField(default=b'')),
+                ('addressL2', models.TextField(default=b'', blank=True)),
+                ('postcode', models.CharField(max_length=10)),
             ],
             options={
             },

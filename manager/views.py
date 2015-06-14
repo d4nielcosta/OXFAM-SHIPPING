@@ -5,16 +5,13 @@ from manager.models import Shop
 
 # Create your views here.
 
-@login_required
 def manager(request):
     context_dict = {}
     return render(request, 'manager.html', context_dict)
 
-@login_required
 def storerank(request):
     return render(request, 'manager/index.html')
 
-@login_required
 def allstores(request):
     shop_list = Shop.objects.all()
     context_dict = {'shops': shop_list}
@@ -23,10 +20,8 @@ def allstores(request):
     
     return render(request, 'manager/allstores.html', context_dict)
 
-@login_required
 def index(request):
     return render(request, 'manager/index.html')
 
-@login_required
 def dev(request):
     return render(request, 'manager/dev.html')
